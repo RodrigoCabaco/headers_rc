@@ -1,8 +1,9 @@
 include "headers.h.rcode"
+
 python_define()
-show_exceptions()
-def main(); => {
-    Write "Hi"
+
+def main(){
+    print("Hello World!")
 };
-main()
+
 exit()

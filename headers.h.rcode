@@ -1,3 +1,10 @@
+#A list of useful defines
+function useful_defines(); => {
+    define "slvalue(":"getStrListValue("
+    define "nlvalue(":"getNumListValue("
+};
+
+
 # Define stuff to make the syntax look more like python3
 # num f >>0 : float f = 0
 # note that num f >>0 will still work
