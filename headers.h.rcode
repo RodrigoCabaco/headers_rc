@@ -34,27 +34,27 @@ function python_define(); => {
 function upper(str to_upper); => {
     str lowered_cases >>"abcdefghijklmnopqrstuvwxyz"
     str upper_cases >>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    list(str) "upper_cases_list"
-    list(str) "lowered_cases_list"
-    list(str) "string_list"
-    list(str).ToCharArray:lowered_cases; to:lowered_cases_list;
-    list(str).ToCharArray:upper_cases; to:upper_cases_list;
-    list(str).ToCharArray:to_upper; to:string_list;
+    list(str) "$to_upper$upper_cases_list"
+    list(str) "$to_upper$lowered_cases_list"
+    list(str) "$to_upper$string_list"
+    list(str).ToCharArray:lowered_cases; to:$to_upper$lowered_cases_list;
+    list(str).ToCharArray:upper_cases; to:$to_upper$upper_cases_list;
+    list(str).ToCharArray:to_upper; to:$to_upper$string_list;
     str upper_cased >>""
-    for character_to_upper in range:string_list.length;{
-        getStrListValue(string_list[character_to_upper])
-        for lower_char in range:lowered_cases_list.length;{
-            getStrListValue(lowered_cases_list[lower_char])
-            while str(string_list[character_to_upper]==lowered_cases_list[lower_char]);{
-                getStrListValue(upper_cases_list[lower_char])
-                str string_list[character_to_upper] >>"$upper_cases_list[lower_char]$""
-                updateStrListValue(string_list[character_to_upper])
+    for character_to_upper in range:$to_upper$string_list.length;{
+        getStrListValue($to_upper$string_list[character_to_upper])
+        for lower_char in range:$to_upper$lowered_cases_list.length;{
+            getStrListValue($to_upper$lowered_cases_list[lower_char])
+            while str($to_upper$string_list[character_to_upper]==$to_upper$lowered_cases_list[lower_char]);{
+                getStrListValue($to_upper$upper_cases_list[lower_char])
+                str $to_upper$string_list[character_to_upper] >>"$$to_upper$upper_cases_list[lower_char]$""
+                updateStrListValue($to_upper$string_list[character_to_upper])
             };
         };
     };
-    for character_upped in range:string_list.length;{
-        getStrListValue(string_list[character_upped])
-        str(upper_cased+string_list[character_upped])
+    for character_upped in range:$to_upper$string_list.length;{
+        getStrListValue($to_upper$string_list[character_upped])
+        str(upper_cased+$to_upper$string_list[character_upped])
     };
     return upper_cased;
 };
