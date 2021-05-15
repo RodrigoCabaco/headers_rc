@@ -11,6 +11,8 @@ function useful_defines(); => {
     define "float ":"num "
     define "float(":"num("
     define "string ":"str "
+    define "string(":"str("
+    define "void ":"function "
 };
 
 
