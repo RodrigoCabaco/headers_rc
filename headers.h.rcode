@@ -3,6 +3,13 @@
 #Author - Rodrigo Cabaço
 #A list of useful defines
 #Pretty understandable
+str lowered_cases >>"abcdefghijklmnopqrstuvwxyz"
+str upper_cases >>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+list(str) "upper_cases_list"
+list(str) "lowered_cases_list"
+list(str) "string_list"
+list(str).ToCharArray:lowered_cases; to:lowered_cases_list;
+list(str).ToCharArray:upper_cases; to:upper_cases_list;
 function useful_defines(); => {
     define "slval(":"getStrListValue("
     define "nlval(":"getNumListValue("
@@ -32,33 +39,23 @@ function python_define(); => {
 # Returns upper string assigned to "to_upper"
 # Returns upper_cased
 function upper(str to_upper); => {
-    str lowered_cases >>"abcdefghijklmnopqrstuvwxyz"
-    str upper_cases >>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    list(str) "upper_cases_list"
-    list(str) "lowered_cases_list"
-    list(str) "string_list"
     for i in range:string_list.length;{
         suppress_errors()
         string_list.RemoveAt(0)
     };
-    list(str).ToCharArray:lowered_cases; to:lowered_cases_list;
-    list(str).ToCharArray:upper_cases; to:upper_cases_list;
     list(str).ToCharArray:to_upper; to:string_list;
     str upper_cased >>""
-    for character_to_upper in range:string_list.length;{
-        getStrListValue(string_list[character_to_upper])
-        for lower_char in range:lowered_cases_list.length;{
-            getStrListValue(lowered_cases_list[lower_char])
-            while str(string_list[character_to_upper]==lowered_cases_list[lower_char]);{
-                getStrListValue(upper_cases_list[lower_char])
-                str string_list[character_to_upper] >>"$upper_cases_list[lower_char]$""
-                updateStrListValue(string_list[character_to_upper])
-            };
+    for f in range:string_list.length;{
+        num ind >>0
+        getStrListValue(string_list[f])
+        lowered_cases_list.IndexOf:string_list[f]; to:ind;
+        if num(ind!=-1);{
+            getStrListValue(upper_cases_list[ind])
+            str(upper_cased+upper_cases_list[ind])
         };
-    };
-    for character_upped in range:string_list.length;{
-        getStrListValue(string_list[character_upped])
-        str(upper_cased+string_list[character_upped])
+        if num(ind==-1);{
+            str(upper_cased+string_list[f])
+        };
     };
     return upper_cased;
 };
