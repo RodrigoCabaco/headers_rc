@@ -6,3 +6,5 @@ function main(); => {
     list(str) "my_list" = ["Rodrigo","Miguel","Helena","Margarida"]
     print_list(str list_name >>"my_list")
 };
+main()
+exit()
