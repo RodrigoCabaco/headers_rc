@@ -1,7 +1,7 @@
 include "headers.h.rcode"
 useful_defines()
 
-def main();{
+function main();{
     str name = "Rodrigo"
     print("$name$")
 };

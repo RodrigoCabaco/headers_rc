@@ -1,3 +1,6 @@
+#Headers rC
+#Made in rC - github.com/RodrigoCabaco/rC
+#Author - Rodrigo Cabaço
 #A list of useful defines
 function useful_defines(); => {
     define "slvalue(":"getStrListValue("
