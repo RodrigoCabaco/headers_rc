@@ -2,6 +2,7 @@
 #Made in rC - github.com/RodrigoCabaco/rC
 #Author - Rodrigo Cabaço
 #A list of useful defines
+#Pretty understandable
 function useful_defines(); => {
     define "slval(":"getStrListValue("
     define "nlval(":"getNumListValue("
@@ -12,7 +13,7 @@ function useful_defines(); => {
     define "float(":"num("
     define "string ":"str "
     define "string(":"str("
-    define "void ":"function "
+    define "func ":"function "
 };
 
 
@@ -80,6 +81,8 @@ function print_str_list(str list_name) => {
     };
     WriteStr {final}
     Write "]"
+    return final;
+
 };
 function print_num_list(str list_name) => {
     Write "["
