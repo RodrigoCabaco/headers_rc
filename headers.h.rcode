@@ -136,12 +136,14 @@ function in_list(str list_name, str value_to_check);{
     };
 };
 
-#Returns parsed -> num/str
+
+#Reassigns the value to num_name 
 function to_int(str num_name); => {
-    numToStr(num_name)
+    num to_convert >>$num_name$
+    numToStr(to_convert)
     str parsed >>""
-    getSplit from:num_name; to:parsed; index:0; separator:".";
-    numToStr(parsed)
-    return parsed;
+    getSplit from:to_convert; to:parsed; index:0; separator:".";
+    strToNum(parsed)
+    num $num_name$ >>parsed
 };
 
