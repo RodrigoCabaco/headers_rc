@@ -4,6 +4,7 @@ useful_defines()
 
 function main(); => {
     list(str) "my_list" = ["Rodrigo","Miguel","Helena","Margarida"]
+    ;;slval(my_list[1]);;str my_list[1] >>"Rodrigo";;uslval(my_list[1])
     print_list(str list_name >>"my_list")
 };
 main()

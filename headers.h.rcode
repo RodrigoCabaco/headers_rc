@@ -3,8 +3,10 @@
 #Author - Rodrigo Cabaço
 #A list of useful defines
 function useful_defines(); => {
-    define "slvalue(":"getStrListValue("
-    define "nlvalue(":"getNumListValue("
+    define "slval(":"getStrListValue("
+    define "nlval(":"getNumListValue("
+    define "uslval(":"updateStrListValue("
+    define "unlval(":"updateNumListValue("
 };
 
 
@@ -54,12 +56,31 @@ function clear() => {
     clear
 };
 
-function print_list(str list_name) => {
+function print_str_list(str list_name) => {
     Write "["
+    str quote >>""
+    str(quote+")
     num len >>$list_name$.length
     for i in range:len; {
         getStrListValue($list_name$[i])
+        WriteStr {quote}
         WriteStr {$list_name$[i]}
+        WriteStr {quote}
+        ;;num len_1 >>$list_name$.length;;--len_1
+        if num(len_1!=i);{
+            Write ","
+        };
+    };
+    Write "]"
+};
+function print_num_list(str list_name) => {
+    Write "["
+    str quote >>""
+    str(quote+")
+    num len >>$list_name$.length
+    for i in range:len; {
+        getNumListValue($list_name$[i])
+        WriteNum {$list_name$[i]}
         ;;num len_1 >>$list_name$.length;;--len_1
         if num(len_1!=i);{
             Write ","
