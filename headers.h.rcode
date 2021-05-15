@@ -23,7 +23,7 @@ function upper(str to_upper); => {
         getStrListValue(string_list[character_to_upper])
         for lower_char in range:lowered_cases_list.length;{
             getStrListValue(lowered_cases_list[lower_char])
-            if str(string_list[character_to_upper]==lowered_cases_list[lower_char]);{
+            while str(string_list[character_to_upper]==lowered_cases_list[lower_char]);{
                 getStrListValue(upper_cases_list[lower_char])
                 str string_list[character_to_upper] >>"$upper_cases_list[lower_char]$""
                 updateStrListValue(string_list[character_to_upper])

@@ -1,7 +1,7 @@
 include "headers.h.rcode"
 
 function main() => {
-    upper(str to_upper >>"Hello, there, i am the best sdjadjaskodjalkdjaljdlkajdlkajldkjaslkdalksjdalskdjalkdjklsa")
+    upper(str to_upper >>"zzz")
     Write "$upper_cased$"
 };
 
