@@ -54,5 +54,15 @@ function clear() => {
     clear
 };
 
-
-
+function print_list(str list_name) => {
+    Write "["
+    for i in range:$list_name$.length; {
+        getStrListValue($list_name$[i])
+        WriteStr {$list_name$[i]}
+        ;;num len_1 >>$list_name$.length;;--len_1
+        if num(len_1!=i);{
+            Write ","
+        };
+    };
+    Write "]"
+};

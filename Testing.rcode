@@ -1,9 +1,8 @@
 include "headers.h.rcode"
+define " = ":" >> "
 useful_defines()
 
-function main();{
-    str name = "Rodrigo"
-    print("$name$")
+function main(); => {
+    list(str) "my_list" = ["Rodrigo","Miguel","Helena","Margarida"]
+    print_list(str list_name >>"my_list")
 };
-main()
-exit()
