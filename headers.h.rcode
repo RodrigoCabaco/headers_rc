@@ -47,3 +47,9 @@ function upper(str to_upper); => {
     return upper_cased;
 };
 
+function clear() => {
+    clear
+};
+
+
+

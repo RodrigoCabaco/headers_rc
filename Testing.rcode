@@ -1,9 +1,9 @@
 include "headers.h.rcode"
+useful_defines()
 
-python_define()
-
-def main(){
-    print("Hello World!")
+def main();{
+    str name = "Rodrigo"
+    print("$name$")
 };
-
+main()
 exit()
