@@ -60,31 +60,36 @@ function print_str_list(str list_name) => {
     Write "["
     str quote >>""
     str(quote+")
+    str final >>""
     num len >>$list_name$.length
     for i in range:len; {
         getStrListValue($list_name$[i])
-        WriteStr {quote}
-        WriteStr {$list_name$[i]}
-        WriteStr {quote}
+        str(final+quote)
+        str(final+$list_name$[i])
+        str(final+quote)
         ;;num len_1 >>$list_name$.length;;--len_1
         if num(len_1!=i);{
-            Write ","
+            str(final+,)
         };
     };
+    WriteStr {final}
     Write "]"
 };
 function print_num_list(str list_name) => {
     Write "["
     str quote >>""
+    str final >>""
     str(quote+")
     num len >>$list_name$.length
     for i in range:len; {
         getNumListValue($list_name$[i])
-        WriteNum {$list_name$[i]}
+        numToStr($list_name$[i])
+        str(final+$list_name$[i])
         ;;num len_1 >>$list_name$.length;;--len_1
         if num(len_1!=i);{
-            Write ","
+            str(final+,)
         };
     };
+    WriteStr {final}
     Write "]"
 };
