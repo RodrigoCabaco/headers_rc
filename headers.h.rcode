@@ -1,3 +1,5 @@
+import pixel
+import split
 #Headers rC
 #Made in rC - github.com/RodrigoCabaco/rC
 #Author - Rodrigo Cabaço
@@ -34,6 +36,15 @@ function python_define(); => {
     define "print(":"Write "
     define "printNum " : "WriteNum "
     define "printStr " : "WriteStr "
+};
+
+function draw_char(num x, num y, str char, str color); => {
+    suppress_errors()
+    pixel.drawchar x:x; y:y; color:$color$; char:$char$
+};
+function draw_color(num x, num y, str color); => {
+    suppress_errors()
+    pixel.draw x:x; y:y; color:$color$;
 };
 
 # Returns upper string assigned to "to_upper"
@@ -124,3 +135,13 @@ function in_list(str list_name, str value_to_check);{
         str in_list >>"True"
     };
 };
+
+#Returns parsed -> num/str
+function to_int(str num_name); => {
+    numToStr(num_name)
+    str parsed >>""
+    getSplit from:num_name; to:parsed; index:0; separator:".";
+    numToStr(parsed)
+    return parsed;
+};
+
