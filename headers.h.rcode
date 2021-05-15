@@ -7,6 +7,10 @@ function useful_defines(); => {
     define "nlval(":"getNumListValue("
     define "uslval(":"updateStrListValue("
     define "unlval(":"updateNumListValue("
+    define " =":" >>"
+    define "float ":"num "
+    define "float(":"num("
+    define "string ":"str "
 };
 
 
@@ -92,4 +96,12 @@ function print_num_list(str list_name) => {
     };
     WriteStr {final}
     Write "]"
+};
+
+function pop(str list_name) => {
+    ;;num len_m1 >>$list_name$.length;;--len_m1
+    $list_name$.RemoveAt(len_m1)
+};
+function pop_first(str list_name) => {
+    $list_name$.RemoveAt(0)
 };
