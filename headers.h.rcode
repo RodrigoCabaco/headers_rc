@@ -1,0 +1,33 @@
+# Define stuff to make the syntax look more like python3
+# num f >>0 : float f = 0
+# note that num f >>0 will still work
+function python_define(); => {
+    define "float ":"num "
+    define " =":" >>"
+};
+
+# Returns upper string assigned to "to_upper"
+# Returns upper_cased
+function upper(str to_upper); => {
+    str lowered_cases >>"abcdefghijklmnopqrstuvwxyz"
+    str upper_cases >>"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    list(str) "upper_cases_list"
+    list(str) "lowered_cases_list"
+    list(str) "string_list"
+    list(str).ToCharArray:lowered_cases; to:lowered_cases_list;
+    list(str).ToCharArray:upper_cases; to:upper_cases_list;
+    list(str).ToCharArray:to_upper; to:string_list;
+    str upper_cased >>""
+    for character_to_upper in range:string_list.length;{
+        getStrListValue(string_list[character_to_upper])
+        for lower_char in range:lowered_cases_list.length;{
+            getStrListValue(lowered_cases_list[lower_char])
+            if str(string_list[character_to_upper]==lowered_cases_list[lower_char]);{
+                getStrListValue(upper_cases_list[lower_char])
+                str(upper_cased+upper_cases_list[lower_char])
+            };
+        };
+    };
+
+    return upper_cased;
+};
