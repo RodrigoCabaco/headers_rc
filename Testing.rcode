@@ -1,9 +1,8 @@
 include "headers.h.rcode"
-
-function main() => {
-    upper(str to_upper >>"zzz")
-    Write "$upper_cased$"
+python_define()
+show_exceptions()
+def main(); => {
+    Write "Hi"
 };
-
 main()
 exit()

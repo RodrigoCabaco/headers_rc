@@ -2,9 +2,12 @@
 # num f >>0 : float f = 0
 # note that num f >>0 will still work
 function python_define(); => {
+    define "def ":"function "
     define "float ":"num "
     define " =":" >>"
-    define "function ":"def "
+    define "print(":"Write "
+    define "printNum " : "WriteNum "
+    define "printStr " : "WriteStr "
 };
 
 # Returns upper string assigned to "to_upper"
@@ -36,3 +39,4 @@ function upper(str to_upper); => {
     };
     return upper_cased;
 };
+
