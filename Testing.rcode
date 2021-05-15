@@ -1,0 +1,9 @@
+include "headers.h.rcode"
+
+function main() => {
+    upper(str to_upper >>"Hello, there, i am the best ")
+    Write "$upper_cased$"
+};
+
+main()
+exit()

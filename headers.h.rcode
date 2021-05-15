@@ -4,6 +4,7 @@
 function python_define(); => {
     define "float ":"num "
     define " =":" >>"
+    define "function ":"def "
 };
 
 # Returns upper string assigned to "to_upper"
@@ -25,6 +26,9 @@ function upper(str to_upper); => {
             if str(string_list[character_to_upper]==lowered_cases_list[lower_char]);{
                 getStrListValue(upper_cases_list[lower_char])
                 str(upper_cased+upper_cases_list[lower_char])
+            };
+            if str(string_list[character_to_upper]!=lowered_cases_list[lower_char]);{
+                str(upper_cased+string_list[character_to_upper])
             };
         };
     };
